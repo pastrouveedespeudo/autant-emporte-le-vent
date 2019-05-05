@@ -1,7 +1,9 @@
 import requests
-
+import cv2
+from PIL import Image
 
 def donnée(lieu):
+
     clé = '5a72ceae1feda40543d5844b2e04a205'
 
     localisation = "http://api.openweathermap.org/data/2.5/weather?q={0},fr&appid={1}".format(lieu,clé)
@@ -14,15 +16,14 @@ def donnée(lieu):
     coord = data['coord']
 
 
-##    print(deg)
-##    print(coord)
-##    print(vent)
+    print(deg)
+    print(coord)
+    print(vent)
 
     return deg
 
 
 def boussole(direction):
-
 
     print(direction)
 
@@ -48,8 +49,33 @@ def boussole(direction):
         print("nw")
 
 
+
+##def carte(x,y):
+def carte():
+
+    img = Image.open('drome.jpg')
+    img = img.resize((500,500)).save('dromecarte.jpg')
+    
+    image = cv2.imread('dromecarte.jpg')
+
+
+    cv2.circle(image, (180, 250), 20, (0, 0, 255), 2)
+    #cv2.line(img, (0, 0), (264, 100), (0, 0, 255))
+
+    cv2.imshow("image", image)
+
+def dessin():
+    pass
+
+
+
+
+
+
+
 deg = donnée("crest")
 boussole(deg)
+carte()
     
 
     
