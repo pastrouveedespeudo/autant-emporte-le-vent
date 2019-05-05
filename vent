@@ -1,0 +1,81 @@
+import requests
+
+
+def donnée(lieu):
+    clé = '5a72ceae1feda40543d5844b2e04a205'
+
+    localisation = "http://api.openweathermap.org/data/2.5/weather?q={0},fr&appid={1}".format(lieu,clé)
+    r = requests.get(localisation)
+    data=r.json()
+
+
+    vent = data['wind']
+    deg = data['wind']['deg']
+    coord = data['coord']
+
+
+##    print(deg)
+##    print(coord)
+##    print(vent)
+
+    return deg
+
+
+def boussole(direction):
+
+
+    print(direction)
+
+    if direction == 0 or direction == 360:
+        print("n")
+
+    if direction > 0 and direction < 90:
+        print('ne')
+
+    if direction == 90:
+        print("e")
+
+    if direction > 90 and direction < 180:
+        print('se')
+
+    if direction == 180:
+        print('s')
+
+    if direction > 180 and direction < 270:
+        print('w')
+
+    if direction > 270 and direction < 360:
+        print("nw")
+
+
+deg = donnée("crest")
+boussole(deg)
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
