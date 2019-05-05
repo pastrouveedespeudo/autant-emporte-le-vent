@@ -15,3 +15,5 @@ la flore et la faune (les champs récolté) de fait les oisseau peuvent bouffer 
 entre haie et vent et pcque le vent rebondis sur la surface le vent chui pas écolo mais la pas me repose
 
 reduire le vent = reduire le transport
+
+bouaaa j'ai faillis devenir jardinier wesh ^^
