@@ -1,7 +1,6 @@
 # autant-emporte-le-vent
-encore un film qui m'a fait grave peur la scene toute rouge...
 
-#ouais j'ai pas trop d'idée ca m'a grave fatigué...
+#et normalement on va pouvoir dégager des loix via des vecteurs okok jme calme demain tu sera entrain de dessiner des voitures
 
 #en gros la faut délimiter toutes les villes qui bordent chaque region mais la drome la
 
