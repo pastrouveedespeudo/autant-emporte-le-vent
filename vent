@@ -65,32 +65,40 @@ def carte(x,y, direction):
     cv2.circle(image, (x, y), 30, (0, 0, 255), 2)
 
     
-    cv2.line(image, (x, y), (x, y+30), (0, 0, 0))#180
+    
     
     cv2.line(image, (x, y), (x, y-30), (0, 0, 0))#0-360
     
-    cv2.line(image, (x, y), (x + 10, y - 25), (0, 0, 0))#30
-    cv2.line(image, (x, y), (x + 20, y - 20), (0, 0, 0))#60
-    cv2.line(image, (x, y), (x + 30, y - 15), (0, 0, 0))#90
+    cv2.line(image, (x, y), (x + 10, y - 25), (0, 0, 0))#22.5
+    cv2.line(image, (x, y), (x + 20, y - 20), (0, 0, 0))#45
+    cv2.line(image, (x, y), (x + 30, y - 15), (0, 0, 0))#67.5
 
-    cv2.line(image, (x, y), (x - 10, y - 25), (0, 0, 0))#340
-    cv2.line(image, (x, y), (x - 20, y - 20), (0, 0, 0))#320
-    cv2.line(image, (x, y), (x - 30, y - 13), (0, 0, 0))#300
-
-    cv2.line(image, (x, y), (x + 30, y + 15), (0, 0, 0))#120
-    cv2.line(image, (x, y), (x + 22, y + 22), (0, 0, 0))#140
-    cv2.line(image, (x, y), (x + 10, y + 30), (0, 0, 0))#160
-
-    cv2.line(image, (x, y), (x - 10, y + 30), (0, 0, 0))#225
-    cv2.line(image, (x, y), (x - 23, y + 23), (0, 0, 0))#235
-    cv2.line(image, (x, y), (x - 28, y + 13), (0, 0, 0))#245
-    
-
-    
-
-    
     cv2.line(image, (x, y), (x + 30, y), (0, 0, 0))#90
+
+    cv2.line(image, (x, y), (x + 30, y + 15), (0, 0, 255))#112.5
+    cv2.line(image, (x, y), (x + 22, y + 22), (0, 0, 0))#135
+    cv2.line(image, (x, y), (x + 10, y + 30), (0, 0, 0))#157.5
+
+    cv2.line(image, (x, y), (x, y+30), (0, 0, 0))#180
+
+    cv2.line(image, (x, y), (x - 10, y + 30), (0, 0, 0))#202.5
+    cv2.line(image, (x, y), (x - 23, y + 23), (0, 0, 0))#225
+    cv2.line(image, (x, y), (x - 28, y + 13), (0, 0, 0))#247.5
+
     cv2.line(image, (x, y), (x - 30, y), (0, 0, 0))#270
+
+    cv2.line(image, (x, y), (x - 10, y - 25), (0, 0, 0))#292.5
+    cv2.line(image, (x, y), (x - 20, y - 20), (0, 0, 0))#315
+    cv2.line(image, (x, y), (x - 30, y - 13), (0, 0, 0))#337.5
+
+
+    
+
+    
+
+    
+
+    
 
     
     image[50:100, centre] = 0,0,255
