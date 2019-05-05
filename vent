@@ -2,6 +2,8 @@ import requests
 import cv2
 from PIL import Image
 
+from donnée import crest
+
 def donnée(lieu):
 
     clé = '5a72ceae1feda40543d5844b2e04a205'
@@ -50,18 +52,50 @@ def boussole(direction):
 
 
 
-##def carte(x,y):
-def carte():
+def carte(x,y, direction):
 
     img = Image.open('drome.jpg')
-    img = img.resize((500,500)).save('dromecarte.jpg')
+    img = img.resize((1200,600)).save('dromecarte.jpg')
     
     image = cv2.imread('dromecarte.jpg')
 
+    centre = int(round(image.shape[1])/2)
+    print(direction)
 
-    cv2.circle(image, (180, 250), 20, (0, 0, 255), 2)
-    #cv2.line(img, (0, 0), (264, 100), (0, 0, 255))
+    cv2.circle(image, (x, y), 30, (0, 0, 255), 2)
 
+    
+    cv2.line(image, (x, y), (x, y+30), (0, 0, 0))#180
+    
+    cv2.line(image, (x, y), (x, y-30), (0, 0, 0))#0-360
+    
+    cv2.line(image, (x, y), (x + 10, y - 25), (0, 0, 0))#30
+    cv2.line(image, (x, y), (x + 20, y - 20), (0, 0, 0))#60
+    cv2.line(image, (x, y), (x + 30, y - 15), (0, 0, 0))#90
+
+    cv2.line(image, (x, y), (x - 10, y - 25), (0, 0, 0))#340
+    cv2.line(image, (x, y), (x - 20, y - 20), (0, 0, 0))#320
+    cv2.line(image, (x, y), (x - 30, y - 13), (0, 0, 0))#300
+
+    cv2.line(image, (x, y), (x + 30, y + 15), (0, 0, 0))#120
+    cv2.line(image, (x, y), (x + 22, y + 22), (0, 0, 0))#140
+    cv2.line(image, (x, y), (x + 10, y + 30), (0, 0, 0))#160
+
+    cv2.line(image, (x, y), (x - 10, y + 30), (0, 0, 0))#225
+    cv2.line(image, (x, y), (x - 23, y + 23), (0, 0, 0))#235
+    cv2.line(image, (x, y), (x - 28, y + 13), (0, 0, 0))#245
+    
+
+    
+
+    
+    cv2.line(image, (x, y), (x + 30, y), (0, 0, 0))#90
+    cv2.line(image, (x, y), (x - 30, y), (0, 0, 0))#270
+
+    
+    image[50:100, centre] = 0,0,255
+
+    
     cv2.imshow("image", image)
 
 def dessin():
@@ -73,10 +107,10 @@ def dessin():
 
 
 
-deg = donnée("crest")
-boussole(deg)
-carte()
-    
+data = donnée("crest")
+#direction = boussole(deg)
+carte(crest[0], crest[1], data)
+
 
     
     
