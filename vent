@@ -2,7 +2,8 @@ import requests
 import cv2
 from PIL import Image
 
-from donnée import crest
+from donnée import CREST
+from donnée import LIVRON
 
 def donnée(lieu):
 
@@ -25,34 +26,8 @@ def donnée(lieu):
     return deg
 
 
-def boussole(direction):
 
-    print(direction)
-
-    if direction == 0 or direction == 360:
-        print("n")
-
-    if direction > 0 and direction < 90:
-        print('ne')
-
-    if direction == 90:
-        print("e")
-
-    if direction > 90 and direction < 180:
-        print('se')
-
-    if direction == 180:
-        print('s')
-
-    if direction > 180 and direction < 270:
-        print('w')
-
-    if direction > 270 and direction < 360:
-        print("nw")
-
-
-
-def carte(x,y, direction):
+def carte(x,y, direction, save):
 
     img = Image.open('drome.jpg')
     img = img.resize((1200,600)).save('dromecarte.jpg')
@@ -64,65 +39,84 @@ def carte(x,y, direction):
 
     cv2.circle(image, (x, y), 30, (0, 0, 255), 2)
 
+
+    if direction == 0 or direction == 360 or direction > 337.5:
+        cv2.line(image, (x, y), (x, y-30), (0, 0, 255))#0-360
+
+    elif direction > 0 and direction <= 22.5:
+        cv2.line(image, (x, y), (x + 10, y - 25), (0, 0, 255))#22.5
+
+    elif direction > 22.5 and direction <= 45:
+        cv2.line(image, (x, y), (x + 20, y - 20), (0, 0, 255))#45
+
+    elif direction > 45 and direction <= 67.5:
+        print("oui")
+        cv2.line(image, (x, y), (x + 30, y - 15), (0, 0, 255))#67.5
+
+    elif direction > 67.5 and direction <= 90:
+        cv2.line(image, (x, y), (x + 30, y), (0, 0, 255))#90
+
+    elif direction > 90 and direction <= 112.5:
+        cv2.line(image, (x, y), (x + 30, y + 15), (0, 0, 255))#112.5
+
+    elif direction > 112.5 and direction <= 135:
+        cv2.line(image, (x, y), (x + 22, y + 22), (0, 0, 255))#135
+
+    elif direction > 135 and direction <= 157.5:
+        cv2.line(image, (x, y), (x + 10, y + 30), (0, 0, 255))#157.5
+
+    elif direction > 157.5 and direction <= 180:
+        cv2.line(image, (x, y), (x, y+30), (0, 0, 255))#180
+        
+    elif direction > 180 and direction <= 202.5:
+        cv2.line(image, (x, y), (x - 10, y + 30), (0, 0, 255))#202.5
+
+    elif direction > 202.5 and direction <= 225:
+        cv2.line(image, (x, y), (x - 23, y + 23), (0, 0, 255))#225
+
+    elif direction > 225 and direction <= 247.5:
+        cv2.line(image, (x, y), (x - 28, y + 13), (0, 0, 255))#247.5
+
+    elif direction > 247.5 and direction <= 270:
+        cv2.line(image, (x, y), (x - 30, y), (0, 0, 255))#270
+
+    elif direction > 270 and direction <= 292.5:
+        cv2.line(image, (x, y), (x - 10, y - 25), (0, 0, 255))#292.5
+        
+    elif direction > 292.5 and direction <= 315:
+        cv2.line(image, (x, y), (x - 20, y - 20), (0, 0, 255))#315
+        
+    elif direction > 315 and direction <= 337.5:
+        cv2.line(image, (x, y), (x - 30, y - 13), (0, 0, 255))#337.5
+
+
+    cv2.imwrite(save, image)
+    return save
+
+
+def dessin(image1, image2, save):
     
-    
-    
-    cv2.line(image, (x, y), (x, y-30), (0, 0, 0))#0-360
-    
-    cv2.line(image, (x, y), (x + 10, y - 25), (0, 0, 0))#22.5
-    cv2.line(image, (x, y), (x + 20, y - 20), (0, 0, 0))#45
-    cv2.line(image, (x, y), (x + 30, y - 15), (0, 0, 0))#67.5
+    p1 = Image.open(image1)
+    p2 = Image.open(image2)
+    p3 = Image.blend(p1, p2, .8)
+    p3.save(save)
 
-    cv2.line(image, (x, y), (x + 30, y), (0, 0, 0))#90
+def show(image):
 
-    cv2.line(image, (x, y), (x + 30, y + 15), (0, 0, 255))#112.5
-    cv2.line(image, (x, y), (x + 22, y + 22), (0, 0, 0))#135
-    cv2.line(image, (x, y), (x + 10, y + 30), (0, 0, 0))#157.5
-
-    cv2.line(image, (x, y), (x, y+30), (0, 0, 0))#180
-
-    cv2.line(image, (x, y), (x - 10, y + 30), (0, 0, 0))#202.5
-    cv2.line(image, (x, y), (x - 23, y + 23), (0, 0, 0))#225
-    cv2.line(image, (x, y), (x - 28, y + 13), (0, 0, 0))#247.5
-
-    cv2.line(image, (x, y), (x - 30, y), (0, 0, 0))#270
-
-    cv2.line(image, (x, y), (x - 10, y - 25), (0, 0, 0))#292.5
-    cv2.line(image, (x, y), (x - 20, y - 20), (0, 0, 0))#315
-    cv2.line(image, (x, y), (x - 30, y - 13), (0, 0, 0))#337.5
-
-
-    
-
-    
-
-    
-
-    
-
-    
-    image[50:100, centre] = 0,0,255
-
-    
-    cv2.imshow("image", image)
-
-def dessin():
-    pass
-
-
-
+    im = cv2.imread(image)
+    cv2.imshow('image', im)
 
 
 
 
 data = donnée("crest")
-#direction = boussole(deg)
-carte(crest[0], crest[1], data)
+crest = carte(CREST[0], CREST[1], data, 'crest.jpg')
 
-
+data = donnée("livron")
+livron = carte(LIVRON[0], LIVRON[1], data, 'livron.jpg')
     
-    
-
+dessin(crest, livron, 'crest_livron.jpg')
+show('crest_livron.jpg')
     
     
 
