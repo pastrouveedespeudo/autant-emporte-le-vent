@@ -104,8 +104,10 @@ def show(image):
 
     im = cv2.imread(image)
 
-    cv2.circle(im, (740, 280), 30, (0, 0, 255), 2)
     cv2.imshow('image', im)
+
+
+
 
 
 
@@ -130,18 +132,17 @@ dico = {'crest':(440, 300),
         'die':(740,280),
 
 
-
-
-
-
-
-
-
-
-
-
-
         }
+
+
+oInput = input('1er fois ? y/n')
+
+if oInput == "y":
+    image = cv2.imread('dromecarte.jpg')
+    cv2.imwrite('image.jpg', image)
+    
+else:
+    pass
 
 for cle, valeur in dico.items():
     print(cle)
@@ -149,8 +150,8 @@ for cle, valeur in dico.items():
     carte('image.jpg', dico[cle][0], dico[cle][1], data, 'image.jpg')
 
 
-    
-#show('image.jpg')
+
+show('image.jpg')
     
     
 
