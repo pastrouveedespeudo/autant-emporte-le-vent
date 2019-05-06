@@ -1,5 +1,8 @@
 # autant-emporte-le-vent
 
+#ok la c parfait faire toute les villes et voir ce que tu peux faire appres ptetre les vecteurs et le rayonnement solaire et tout ce qui influe sur le vent !
+
+
 #et normalement on va pouvoir dégager des loix via des vecteurs okok jme calme demain tu sera entrain de dessiner des voitures
 
 #en gros la faut délimiter toutes les villes qui bordent chaque region mais la drome la
