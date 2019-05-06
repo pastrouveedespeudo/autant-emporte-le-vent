@@ -97,18 +97,53 @@ def carte(imimage, x,y, direction, save):
 def show(image):
 
     im = cv2.imread(image)
+
+    cv2.circle(im, (740, 280), 30, (0, 0, 255), 2)
     cv2.imshow('image', im)
 
 
+
 dico = {'crest':(440, 300),
-         'livron':(340, 280)}
+         'livron':(340, 280),
+         'montélimar':(190, 370),
+         'donzère':(80,430),
+          'pierrelatte':(170, 465),
+        'st paul troie chateaux':(240, 480),
+        'vairoas':(360,480),
+        'nyons':(570,480),
+        'buis-les baronnies':(700,520),
+        'sederon':(940,550),
+        'chamouson':(940,500),
+        'rémusa':(750,450),
+        'la mette chasison':(700,400),
+        'dieulefit':(490,400),
+        'la regud de mazain':(380,380),
+        'boudeaux':(550,360),
+        'luc en-dios':(840,340),
+        'chatillon en dios':(840,300),
+        'die':(740,280),
 
-for cle, valeur in dico.items():
-    print(cle)
-    data = donnée(str(cle))
-    carte('image.jpg', dico[cle][0], dico[cle][1], data, 'image.jpg')
 
 
+
+
+
+
+
+
+
+
+
+
+        }
+
+##for cle, valeur in dico.items():
+##    print(cle)
+##    data = donnée(str(cle))
+##    carte('image.jpg', dico[cle][0], dico[cle][1], data, 'image.jpg')
+##
+
+    
 show('image.jpg')
     
     
